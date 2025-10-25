@@ -1,0 +1,681 @@
+/* --- 1. Global Reset and Variables --- */
+:root {
+    --primary-color: #A37E3E; /* Light Gold/Brown - Elegant Accent */
+    --secondary-color: #383838; /* Dark Grey/Charcoal for Sections */
+    --text-light: #F0F0F0; /* Off-White for Main Text */
+    --text-dark: #202020; /* Very Dark Text for light sections */
+    --bg-dark: #1C1C1C; /* Main Dark Background */
+    --bg-light: #FFFFFF; /* White for Contrast Sections (e.g., location) */
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 6px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- 2. Typography & Headings --- */
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+.intro-text, .cta-text {
+    max-width: 800px;
+    margin: 0 auto 2em;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+/* --- 3. Utility Classes --- */
+.content-section {
+    padding: 4em 5%;
+    min-height: 40vh;
+}
+
+.dark-bg {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+/* --- 4. Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 5%;
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent for depth */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+    font-weight: 400;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; /* Hide on desktop */
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* --- 5. Hero Section (Banner) --- */
+.hero-section {
+    background: url('images/hero.jpg') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.2em;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.tagline {
+    font-size: 1.4em;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: 1.5em;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* --- 6. Buttons Styling --- */
+.btn {
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+.btn-location {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    background-color: #D6A84A; /* Slightly brighter gold for the call-to-action button */
+    color: var(--bg-dark);
+}
+
+/* --- 7. About Section Grid (Feature Cards) --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for 3 cards */
+    gap: 30px;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.feature-card {
+    background-color: var(--secondary-color);
+    padding: 2em;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.icon-large {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* --- 8. Collections Grid (New) --- */
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 2em;
+}
+
+.collection-item {
+    background-color: var(--bg-dark);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.collection-item img {
+    width: 100%;
+    height: 350px; /* Make images slightly taller */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.collection-item img:hover {
+    transform: scale(1.05);
+}
+
+.collection-item h3 {
+    color: var(--primary-color);
+    margin-top: 15px;
+}
+
+.collection-item p {
+    padding: 0 15px 15px;
+    font-size: 0.95em;
+}
+
+
+/* --- 9. Gallery Grid (More Images) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* More items per row */
+    gap: 15px;
+    margin-bottom: 2em;
+}
+
+.gallery-item {
+    background-color: var(--secondary-color); /* Slightly lighter background for cards */
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px; /* Smaller height for gallery thumbnails */
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+figcaption {
+    padding: 10px;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+
+/* --- 10. Location & Map --- */
+.location-details {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.address-hours h3 {
+    color: var(--primary-color); /* Keep primary color for headings in dark section */
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.location-details p {
+    color: var(--text-light); /* Ensure text is light in dark section */
+}
+
+.map-container {
+    background-color: var(--bg-dark); /* Darker background for map container */
+    padding: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+    border-radius: var(--border-radius);
+    display: block;
+}
+
+.hours {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border-radius: var(--border-radius);
+}
+
+.hours h4 {
+    color: var(--bg-dark);
+    margin-bottom: 5px;
+}
+
+/* --- 11. Footer --- */
+footer {
+    background-color: #0F0F0F; /* Even darker footer */
+    padding: 2em 5%;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 10px;
+}
+
+.contact-info span {
+    margin-left: 20px;
+}
+
+.contact-info i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.developer-credit {
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* --- 12. Responsive Design (Mobile First) --- */
+@media (max-width: 768px) {
+    /* General adjustments */
+    .content-section {
+        padding: 3em 5%;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    /* Navigation */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        background-color: #1C1C1C;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show menu when active */
+    }
+
+    /* Hero */
+    .hero-section {
+        height: 60vh;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /* Grids */
+    .feature-grid, .collection-grid, .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    /* Location */
+    .location-details {
+        grid-template-columns: 1fr; /* Stack columns */
+    }
+
+    .map-container {
+        order: -1; /* Move map above text on mobile */
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        margin-top: 10px;
+    }
+
+    .contact-info span {
+        display: block;
+        margin: 5px 0;
+    }
+}
+/* Fix gallery spacing in mobile */
+.gallery-grid {
+    gap: 25px;
+    padding: 0 10px;
+}
+
+.gallery-item img {
+    height: 220px; /* slightly taller for clarity */
+}
+/* --- Fix map layout and button stacking in mobile --- */
+.map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: var(--border-radius);
+}
+
+.btn-location {
+    position: static; /* reset absolute */
+    transform: none;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+strong, b {
+    font-weight: 700; /* or 600 if you want slightly lighter bold */
+}
+.styled-intro {
+    max-width: 900px;        /* Keep paragraph width readable */
+    margin: 0 auto 3em;      /* Center align and space below */
+    text-align: justify;      /* Justified text for neat alignment */
+    font-size: 1.15em;       /* Slightly bigger for readability */
+    line-height: 1.8;        /* More breathing space between lines */
+    color: #F0E6D2;          /* Soft off-white, elegant on dark bg */
+    background-color: rgba(0,0,0,0.2); /* subtle background highlight */
+    padding: 20px;            /* Add spacing inside the box */
+    border-radius: 12px;      /* Rounded corners for elegance */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Soft shadow for depth */
+}
+
+.styled-intro .highlight {
+    font-weight: 700;         /* Bold for emphasis */
+    color: #D6A84A;           /* Gold accent for important names */
+}
+/* --- 1. Hero Buttons (Original Desktop/Default Style) --- */
+.hero-buttons {
+    display: flex; /* Keep this */
+    justify-content: center;
+    gap: 15px;
+}
+
+/* --- 2. Responsive Design (Mobile Fix for Buttons) --- */
+@media (max-width: 768px) {
+    /* ... other mobile styles ... */
+    
+    .hero-buttons {
+        /*
+        * CHANGE: Keep direction as row (default, but explicitly stated here)
+        * and remove the stacking.
+        */
+        flex-direction: row; 
+        
+        /* Ensures elements fit on a single line by allowing them to shrink */
+        flex-wrap: nowrap; 
+        
+        /* Adjust gap for tighter mobile spacing */
+        gap: 8px; 
+    }
+
+    .btn {
+        /* * CHANGE: Set flex-shrink to 1 and width/flex-basis to ensure 
+        * they take up exactly 50% of the available space, forcing them 
+        * side-by-side without wrapping.
+        */
+        width: 48%; /* Adjusting for 8px gap (50% - 4px on each side) */
+        flex-shrink: 1; 
+        margin: 0; /* Remove previous auto margin */
+        padding: 10px 10px; /* Adjust padding to fit smaller screen width */
+        font-size: 0.9em; /* Smaller text on mobile */
+    }
+    
+    /* ... rest of the mobile styles ... */
+}
+@media (max-width: 768px) {
+    /* ... other mobile styles ... */
+    
+    .hero-buttons {
+        flex-direction: row; 
+        flex-wrap: nowrap; 
+        
+        /* INCREASED GAP: More space between the buttons */
+        gap: 15px; 
+    }
+
+    .btn {
+        /* * ADJUSTED WIDTH: Reduced width to accommodate the larger gap (15px) 
+        * while still forcing them side-by-side.
+        */
+        width: 45%; 
+        flex-shrink: 1; 
+        margin: 0; 
+        
+        /* Keeping vertical size small for mobile comfort */
+        padding: 8px 5px; 
+        font-size: 0.8em; 
+    }
+    
+    /* ... rest of the mobile styles ... */
+}
+.logo {
+    font-family: 'Playfair Display', serif; /* Elegant serif font */
+    font-size: 1.8em;                      /* Adjust size */
+    font-weight: 700;                       /* Bold text */
+    color: #A37E3E;                         /* Light gold/brown */
+    letter-spacing: 2px;                     /* Slight spacing for style */
+    text-transform: uppercase;              /* All caps */
+}
+/* --- 10. Product Highlights Card Styling (Refined) --- */
+
+/* Main Grid Container for Cards */
+.product-grid-cards {
+    display: grid;
+    /* 3 columns on desktop, adapts down to 1 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 2em auto;
+}
+
+.product-card {
+    background-color: #282828; /* Slightly lighter background than the body for contrast */
+    padding: 30px;
+    border-radius: 12px; /* Smoother, larger border radius */
+    border: 1px solid rgba(163, 126, 62, 0.2); /* Subtle gold border */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); /* Deeper shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex; 
+    flex-direction: column;
+}
+
+/* Premium Hover Effect */
+.product-card:hover {
+    transform: translateY(-8px); /* Lifts the card more noticeably */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+    background-color: #333333; /* Darker on hover for richness */
+}
+
+.product-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em; /* Slightly larger heading */
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--primary-color); /* Thicker, prominent gold accent line */
+    font-weight: 700;
+}
+
+.product-card h3 i {
+    margin-right: 12px;
+}
+
+/* List Items inside the Card */
+.product-card-list {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1;
+    margin-bottom: 25px; /* More space above the button */
+}
+
+.product-card-list li {
+    padding: 10px 0; /* Increased vertical padding */
+    font-size: 1.05em;
+    font-weight: 300;
+    color: var(--text-light);
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Dotted separator for neatness */
+    transition: color 0.3s;
+}
+
+.product-card-list li:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.product-card-list li:hover {
+    color: var(--primary-color); /* Text highlights gold on list item hover */
+}
+
+.product-card-list li::before {
+    /* Custom simple square/dash bullet - using a gold arrow now for attraction */
+    content: "\27A2\0020"; /* Unicode right-pointing triangle/arrow */
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+/* Button Styling for the Cards */
+.card-btn {
+    text-decoration: none;
+    padding: 12px 20px; /* Larger button padding */
+    margin-top: auto; 
+    background-color: var(--primary-color); /* Button is gold by default */
+    color: var(--bg-dark);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px; 
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card-btn:hover {
+    background-color: transparent; /* Hover makes it transparent/dark */
+    color: var(--primary-color); /* Gold text on hover */
+}
+
+
+/* --- Responsive Fix for Cards --- */
+@media (max-width: 768px) {
+    .product-grid-cards {
+        gap: 20px;
+    }
+}
+/* --- Footer Styling (from your existing CSS) --- */
+
+/* ... other footer styles ... */
+
+.developer-credit {
+    font-size: 0.8em;
+    color: #555; /* Keeps the color subtle */
+    
+    /* --- KEY CHANGES FOR HEIGHT/SPACE --- */
+    margin-top: 25px;       /* Increased space above the line */
+    padding: 10px 0;       /* Added vertical padding for extra visual height */
+    display: block;        /* Ensures padding and margin are applied correctly */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Very thin separating line */
+}
